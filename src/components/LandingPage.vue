@@ -11,7 +11,7 @@
             <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
           </svg>
           <div class="horizontal-row"></div>
-          <h1><span>E</span>xplore</h1>
+          <h1 class="info-h1"><span>E</span>xplore</h1>
           <div class="horizontal-row--thin"></div>
           <p>
             Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae
@@ -25,10 +25,8 @@
     </div>
   </div>
   <div class="main-hero">
-    <div class="container-anchor">
-      <div class="text-container" :class="heroType">
-        <h1><span>E</span>xplore</h1>
-      </div>
+    <div class="text-container" :class="heroType">
+      <h1><span>E</span>xplore</h1>
     </div>
     <div class="more-details">
       <div class="plus-circle" @click="handleButtonDetails" :class="buttonType">
@@ -36,7 +34,7 @@
           <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
         </svg>
       </div>
-      <p v-if="showDetail != 'showMenu'" :class="heroType">More Details</p>
+      <p class="more-details--p" v-if="showDetail != 'showMenu'" :class="heroType">More Details</p>
     </div>
   </div>
 </template>
@@ -97,6 +95,7 @@ export default {
   height: 100vh;
   width: 100vw;
   &--marroon {
+    display: none;
     width: 400px;
     height: 100%;
     background-color: #591e1b;
@@ -105,7 +104,7 @@ export default {
     background-repeat: no-repeat;
     background-size: cover;
     height: 100%;
-    width: calc(100% - 400px);
+    width: 100%;
     background-image: url("../assets/forest.webp");
   }
 }
@@ -120,10 +119,9 @@ export default {
 }
 
 .pop-up__container {
-  position: absolute;
-  top: 60px;
-  width: 40rem;
-  height: 650px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .pop-up--animate-showMenu {
@@ -141,8 +139,6 @@ export default {
 .pop-up {
   position: relative;
   background: white;
-  left: 140px;
-  bottom: 0px;
 
   .info--animate-hideMenuText {
     animation-name: hideMenuText;
@@ -179,7 +175,7 @@ export default {
 
     h1 {
       margin: 16px 0;
-      font-size: 6rem;
+      font-size: 4rem;
       color: #5a1e1b;
     }
 
@@ -211,13 +207,11 @@ export default {
 
 .main-hero {
   position: absolute;
-  bottom: 200px;
-  left: 170px;
+  bottom: 30%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
   font-family: sans-serif;
-
-  .container-anchor {
-    position: relative;
-  }
 
   .text-container--hide {
     animation-name: hideText;
@@ -234,18 +228,19 @@ export default {
   .text-container {
     overflow: hidden;
     width: 700px;
-    height: 280px;
+    max-width: 90%;
+    height: auto;
 
     h1 {
       right: 0;
       font-family: "Unna", serif;
-      font-size: 12rem;
+      font-size: 6rem;
       font-weight: 500;
       color: white;
       margin: 0px;
 
       span {
-        font-size: 14rem;
+        font-size: 10rem;
       }
     }
   }
@@ -255,7 +250,7 @@ export default {
     width: 300px;
     position: absolute;
     left: 90px;
-    bottom: -10px;
+    bottom: -25px;
     display: flex;
     align-items: center;
 
@@ -277,7 +272,7 @@ export default {
       justify-content: center;
       margin-right: 10px;
       background: white;
-      padding: 6px;
+      padding: 8px;
       border-radius: 100%;
 
       .exit-icon {
@@ -286,8 +281,8 @@ export default {
         width: 14px;
       }
     }
-    p {
-      font-size: 2rem;
+    .more-details--p {
+      font-size: 1rem;
       font-weight: 300;
       color: white;
     }
@@ -400,17 +395,41 @@ export default {
 
 @media (min-width: 850px) {
   .main-hero {
-    bottom: 30%;
+    bottom: 200px;
+    left: 170px;
+    display: block;
   }
 
-  .more-details {
-    p {
-      font-size: 1rem;
-    }
+  .main-hero .text-container h1 {
+    font-size: 7.5rem;
+  }
 
-    .plus-circle {
-      padding: 8px;
-    }
+  .main-hero .more-details .more-details--p {
+    font-size: 1rem;
+  }
+
+  .plus-circle {
+    padding: 6px;
+  }
+
+  .main-bg--marroon {
+    display: block;
+  }
+
+  .main-bg--forest {
+    width: calc(100% - 400px);
+  }
+
+  .pop-up__container {
+    position: absolute;
+    top: 60px;
+    width: 40rem;
+    height: 650px;
+  }
+
+  .pop-up {
+    left: 140px;
+    bottom: 0px;
   }
 }
 </style>
