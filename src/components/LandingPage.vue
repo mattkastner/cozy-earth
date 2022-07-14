@@ -208,10 +208,10 @@ export default {
 .main-hero {
   position: absolute;
   bottom: 30%;
-  width: 100%;
   display: flex;
   justify-content: center;
   font-family: sans-serif;
+  max-width: 370px;
 
   .text-container--hide {
     animation-name: hideText;
@@ -222,7 +222,7 @@ export default {
   .text-container--show {
     animation-name: showText;
     animation-fill-mode: forwards;
-    animation-duration: 0.2s;
+    animation-duration: 0.5s;
   }
 
   .text-container {
@@ -238,7 +238,6 @@ export default {
       font-weight: 500;
       color: white;
       margin: 0px;
-
       span {
         font-size: 10rem;
       }
@@ -247,7 +246,7 @@ export default {
 
   .more-details {
     height: 50px;
-    width: 300px;
+    width: 200px;
     position: absolute;
     left: 90px;
     bottom: -25px;
@@ -303,12 +302,14 @@ export default {
 
 @keyframes showText {
   0% {
+    opacity: 0;
     width: 0px;
   }
   60% {
     width: 80%;
   }
   100% {
+    opacity: 1;
     width: 100%;
   }
 }
@@ -398,6 +399,7 @@ export default {
     bottom: 200px;
     left: 170px;
     display: block;
+    max-width: 500px;
   }
 
   .main-hero .text-container h1 {
@@ -430,6 +432,10 @@ export default {
   .pop-up {
     left: 140px;
     bottom: 0px;
+  }
+
+  .main-hero .text-container h1 {
+    max-width: 500px;
   }
 }
 </style>
