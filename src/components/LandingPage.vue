@@ -228,7 +228,6 @@ export default {
   .text-container {
     overflow: hidden;
     width: 700px;
-    max-width: 90%;
     height: auto;
 
     h1 {
@@ -292,9 +291,6 @@ export default {
   0% {
     width: 100%;
   }
-  60% {
-    width: 80%;
-  }
   100% {
     width: 0%;
   }
@@ -304,9 +300,6 @@ export default {
   0% {
     opacity: 0;
     width: 0px;
-  }
-  60% {
-    width: 80%;
   }
   100% {
     opacity: 1;
@@ -397,13 +390,21 @@ export default {
 @media (min-width: 850px) {
   .main-hero {
     bottom: 200px;
-    left: 170px;
+    left: 150px;
     display: block;
-    max-width: 500px;
+  }
+
+  .main-hero .text-container {
+    width: 750px;
   }
 
   .main-hero .text-container h1 {
-    font-size: 7.5rem;
+    font-size: 14rem;
+    width: 750px;
+  }
+
+  .main-hero .text-container h1 span {
+    font-size: 16rem;
   }
 
   .main-hero .more-details .more-details--p {
@@ -432,10 +433,6 @@ export default {
   .pop-up {
     left: 140px;
     bottom: 0px;
-  }
-
-  .main-hero .text-container h1 {
-    max-width: 500px;
   }
 }
 </style>
